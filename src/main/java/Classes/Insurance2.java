@@ -32,7 +32,7 @@ public class Insurance2 {
     double policy;
         try {
             policy = quote(age);
-            System.out.println("your policy will cost $ "+policy+".");
+            //System.out.println("your policy will cost $ "+policy+".");
         } catch (InvalidAgeException ex) {
             Logger.getLogger(Insurance2.class.getName()).log(Level.SEVERE, null, ex);
         }
