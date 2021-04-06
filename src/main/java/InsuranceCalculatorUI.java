@@ -113,11 +113,14 @@ public class InsuranceCalculatorUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonGetQuoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonGetQuoteActionPerformed
-int age = Integer.parseInt(TextBoxAgeIn.getText());
-double policy;
+/*int age = Integer.parseInt(TextBoxAgeIn.getText());
+double policy;*/
 JFrame errorMessage = new JFrame("Insurance Calculator");
 
         try {
+            int age = Integer.parseInt(TextBoxAgeIn.getText());
+            double policy;
+            
             if (isInt(age)==true){
             policy = quote(age);
             LabelQuoteOutput.setText("your policy will cost $"+policy+".");
@@ -128,7 +131,7 @@ JFrame errorMessage = new JFrame("Insurance Calculator");
                     "us from offering you coverage",
                "Insurance Calculator", JOptionPane.ERROR_MESSAGE);
         }
-        catch (NumberFormatException ex) {
+        catch (Exception ex) {
             JOptionPane.showMessageDialog(errorMessage, "Invalid Input",
                "Insurance Calculator", JOptionPane.ERROR_MESSAGE);
         }
@@ -142,11 +145,11 @@ JFrame errorMessage = new JFrame("Insurance Calculator");
         LabelQuoteOutput.setText("Quote Will Appear Here");
         TextBoxAgeIn.setText("");
     }//GEN-LAST:event_ButtonClearFormActionPerformed
-    public boolean isInt(int age) throws NumberFormatException  {
+    public boolean isInt(int age) throws Exception  {
         boolean isInt = true;
         if (age != (int)age){
             isInt = false;
-            throw new NumberFormatException ("Invalid Input");}
+            throw new Exception ("Invalid Input");}
         return isInt;
         }
    
